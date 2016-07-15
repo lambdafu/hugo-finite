@@ -1,0 +1,7 @@
+{{ $pub_type_icon := (dict "unpublished" "file-o") }}
+{{ $pub_kind_icon := (dict "book" "book") }}
+{{ $pub_default_icon := "file-text-o" }}
+{{ $pub_type := index .Params "type" | default "" }}
+{{ $pub_kind := index .Params "kind" | default "" }}
+{{ $pub_icon := (index $pub_type_icon $pub_type) | default (index $pub_kind_icon $pub_kind) }}
+fa-{{ $pub_icon | default $pub_default_icon }}

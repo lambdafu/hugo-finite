@@ -1,0 +1,40 @@
+{{ define "top-bar-right" }}
+{{ partial "share.html" $ }}
+{{ end }}
+{{ define "title-bar-right" }}
+{{ partial "share.html" $ }}
+{{ end }}
+{{ define "whatisthis" }}
+{{ partial "whatisthis-short.html" . }}
+{{ end }}
+{{ define "main" }}
+<div class="row">
+  <div class="column small-12 medium-10 medium-offset-1 end large-8 large-offset-0">
+    <article class="article" itemscope itemtype="http://schema.org/Article">
+      {{ if .Params.image }}
+      <img src="{{ $.Site.BaseURL }}img/{{ .Params.image }}" class="article-banner" itemprop="image">
+      {{ end }}
+      <h1 itemprop="name">{{ .Title }}</h1>
+      {{ partial "post-metadata" . }}
+      <div class="post-body" itemprop="articleBody">
+        {{ .Content }}
+      </div>
+
+      <meta itemprop="wordCount" content="{{ .WordCount }}">
+      <meta itemprop="datePublished" content="{{ .Date.Format "2006-01-02" }}">
+      <meta itemprop="url" content="{{ .Permalink }}">
+    </article>
+
+    <ul class="pagination" role="navigation" aria-label="Pagination">
+      {{ if .PrevInSection }}
+      <li class="arrow" aria-disabled="true"><a href="{{.PrevInSection.Permalink}}">&laquo; <em>Previous<span class="show-for-sr"> page</span></em>: {{ .PrevInSection.Title }}</a></li>
+      {{ end }}
+      {{ if .NextInSection }}
+      <li class="arrow" aria-disabled="true"><a href="{{.NextInSection.Permalink}}"><em>Next<span class="show-for-sr"> page</span></em>: {{ .NextInSection.Title }}&nbsp;&raquo;</a></li>
+      {{ end }}
+    </ul>
+
+    <!-- FIXME <a href="/post/archives/">All Posts by Date</a> &middot; <a href="/categories/">All Posts by Category</a> -->
+  </div>
+</div>
+{{ end }}

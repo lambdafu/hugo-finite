@@ -1,0 +1,8 @@
+<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+{{ partial "post-metadata" . }}
+{{ if .Truncated }}
+{{ .Summary }}
+<p class="text-right"><a href="{{ .RelPermalink }}">Read More…</a></p>
+{{ else }}
+{{ .Content }}
+{{ end }}	
