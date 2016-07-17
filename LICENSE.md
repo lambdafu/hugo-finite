@@ -6,8 +6,6 @@ kieranhealy.org.  It is also inspired by the acedemic theme for hugo.
 
 The MIT License (MIT)
 
-Copyright (c) 2016 George Cushen, Academic Theme
-Copyright (c) 2015-2016 Greg Restall, consequently.org
 Copyright (c) 2016 Marcus Brinkmann
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
