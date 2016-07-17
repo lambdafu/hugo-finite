@@ -12,9 +12,9 @@ theme="finite"
 # Examples: "Mon, Jan 2, 2006" or "2006-01-02"
 #date_format = "2 January 2006"
 
-# Publications must have a type and a kind.
-# Type is one of: published, unpublished
-# Kind is one of: book
+# Publications can have a Params.publication for citation references.
+# Publications can have a Params.kind, such as "book".
+# Both parameters are mapped to an icon in partials/pub-icon.html.
 
 bio_full = "Pierre de Fermat: Lawyer at the Parlement of Toulouse, mathematician in his spare time!"
 bio_twitter = "pierrede_fermat"

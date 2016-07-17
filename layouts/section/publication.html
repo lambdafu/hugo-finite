@@ -7,7 +7,7 @@
 <div class="row">
   <div class="column small-12 medium-6">
     <h2>Work In Progress</h2>
-    {{ range (where .Data.Pages "Type" "!=" "published").GroupByDate "2006" "desc" }}
+    {{ range (where .Data.Pages "Params.publication" "==" "").GroupByDate "2006" "desc" }}
     <div class="row">
       <div class="column small-2 medium-2">
         <h3>{{ .Key }}</h3>
@@ -24,7 +24,7 @@
   </div>
   <div class="column small-12 medium-6">
     <h2>Published</h2>
-    {{ range (where .Data.Pages "Type" "published").GroupByDate "2006" "desc" }}
+    {{ range (where .Data.Pages "Params.publication" "!=" "").GroupByDate "2006" "desc" }}
     <div class="row">
       <div class="column small-2 medium-2">
         <h3>{{ .Key }}</h3>
