@@ -5,10 +5,20 @@
       <h1>About</h1>
       <figure class="full-figure">
 	<img src="/img/portrait.jpg" alt="Portrait of the author">
-	<figcaption>{{ .Site.Params.bio_full }}</figcaption>
+	{{ if index .Site.Params "bio_full" }}<figcaption>{{ .Site.Params.bio_full }}</figcaption>{{ end }}
       </figure>
     </div>
     <div class="column small-12 medium-4">
+      {{ if isset .Site.Params "education" }}
+      <h1>Education</h1>
+      <ul class="ul-edu fa-ul">
+	{{ range $.Site.Params.education }}
+	<li><i class="fa-li fa fa-graduation-cap"></i>
+          {{ .course }}, {{ .year }} ({{ .institution }})
+        </li>
+        {{ end }}
+      </ul>
+      {{ end }}
       <h1 id="contact">Contact</h1>
       <ul class="fa-ul">
 	{{ range $.Site.Params.social }}

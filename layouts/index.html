@@ -1,8 +1,8 @@
 {{ define "main" }}
-{{ $posts_title := index .Site.Params.main "posts_title" | default "Posts" }}
-{{ $posts_count := index .Site.Params.main "posts_count" | default 2 }}
-{{ $pubs_title := index .Site.Params.main "pubs_title" | default "Publications" }}
-{{ $pubs_count := index .Site.Params.main "pubs_count" | default 5 }}
+{{ $posts_title := index .Site.Params "posts_title" | default "Posts" }}
+{{ $posts_count := index .Site.Params "posts_count" | default 2 }}
+{{ $pubs_title := index .Site.Params "pubs_title" | default "Publications" }}
+{{ $pubs_count := index .Site.Params "pubs_count" | default 5 }}
 <div class="row">
   <div class="column small-12 medium-7 large-6">
     <h1>Recent {{ $posts_title }}</h1>

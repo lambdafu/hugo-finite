@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="row">
+  <div class="column small-12">
+    <h1>All {{ .Data.Plural }}</h1>
+    <ul class="taxonomy-terms capitalize">
+      {{ range $key,$value := .Data.Terms.ByCount }}
+      <li><a href="{{ $value.Name | urlize }}">{{ $value.Name }}</a> ({{ $value.Count }})</li>
+      {{ end }}
+    </ul>
+    {{ partial "taxonomies" . }}
+  </div>
+</div>
+{{ end }}

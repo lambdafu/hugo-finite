@@ -1,13 +1,13 @@
 {{ define "main" }}
 <div class="row">
-  <div class="column small-12 medium-10 medium-offset-1 end large-offset-0 large-8">
-    {{ partial "publication-aside" . }}
+  <div class="column small-12 large-8 end">
+    {{ partial "pub-aside" . }}
   </div>
 </div>
 <div class="row">
   <div class="column small-12 medium-6">
-    <h2>Articles and Book Chapters</h2>
-    {{ range (where .Data.Pages "Type" "published").GroupByDate "2006" "desc" }}
+    <h2>Work In Progress</h2>
+    {{ range (where .Data.Pages "Type" "!=" "published").GroupByDate "2006" "desc" }}
     <div class="row">
       <div class="column small-2 medium-2">
         <h3>{{ .Key }}</h3>
@@ -15,19 +15,15 @@
       <div class="column small-10 medium-10">
 	<ul class="compact fa-ul">
 	  {{ range .Pages.ByDate.Reverse }}
-	  <li><i class="fa-li fa {{ if eq .Type "unpublished" }}fa-file-o {{ else if eq .Params.kind "book" }}fa-book {{ else }}fa-file-text-o {{ end }}" style="padding-top:3px;"></i> {{ .Title | safeHTML }} 
-	    <br />
-	    <span><a class="button hollow publication_link" href="{{ .Permalink }}">Abstract</a>
-	      {{ partial "publication_links" . }}</span>
-	  </li>
-	  {{ end }}
+      <li>{{ partial "pub-summary" . }}</li>
+      {{ end }}
 	</ul>
       </div>
     </div>
     {{ end }}
   </div>
   <div class="column small-12 medium-6">
-    <h2>Others</h2>
+    <h2>Published</h2>
     {{ range (where .Data.Pages "Type" "published").GroupByDate "2006" "desc" }}
     <div class="row">
       <div class="column small-2 medium-2">
@@ -36,11 +32,7 @@
       <div class="column small-10 medium-10">
 	<ul class="compact fa-ul">
 	  {{ range .Pages.ByDate.Reverse }}
-	  <li><i class="fa-li fa {{ if eq .Type "unpublished" }}fa-file-o {{ else if eq .Params.kind "book" }}fa-book {{ else }}fa-file-text-o {{ end }}" style="padding-top:3px;"></i> {{ .Title | safeHTML }} 
-	    <br />
-	    <span><a class="button hollow publication_link" href="{{ .Permalink }}">Abstract</a>
-	      {{ partial "publication_links" . }}</span>
-	  </li>
+	  <li>{{ partial "pub-summary" . }}</li>
 	  {{ end }}
 	</ul>
       </div>
@@ -48,83 +40,4 @@
     {{ end }}
   </div>
 </div>
-{{ end }}
-{{ define "xxx" }}
-<ul class="compact fa-ul">
-{{ range .Pages.ByDate.Reverse }}
-<li><i class="fa-li fa  {{ if eq .Type "unpublished" }}fa-file-o {{ else if eq .Params.kind "book" }}fa-book {{ else }}fa-file {{ end }} fa-fw" style="color:#03396c;font-size:80%;padding-top:6px;"></i> {{ .Params.citation | safeHTML }}
-<a href="{{ .Permalink }}" class="badge badge-small">Abstract</a>
-{{ if isset .Params "file" }}
-<a href="{{.Site.BaseURL}}files/papers/{{ .Params.file }}" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;pdf</a>
-{{ end }}
-</li>
-{{ end }}
-</ul>              
-</div>	
-</div>
-</div>
-
-<h2>Working Papers</h2>
-{{ range (where .Data.Pages "Type" "unpublished").GroupByDate "2006" "desc" }}
-<div class="units-row">
-<div class="unit-10">
-<h3>{{ .Key }}</h3>
-</div>
-<div class="unit-90">
-<ul class="compact fa-ul">
-{{ range .Pages.ByDate.Reverse }}
-<li><i class="fa-li fa fa-file-o fa-fw" style="color:#03396c;font-size:80%;padding-top:6px;"></i> {{ .Params.citation | safeHTML }} 
-<a href="{{ .Permalink }}" class="badge badge-small">Abstract</a>
-{{ if isset .Params "file" }}
-<a href="{{.Site.BaseURL}}files/papers/{{ .Params.file }}" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;pdf</a>
-{{ end }}
-</li>
-{{ end }}
-</ul>              
-</div>	
-</div>
-          {{ end }}
-      <h2>Retired Papers</h2>
-          <!-- Column of even-numbered items -->
-          {{ range (where .Data.Pages "Type" "retired").GroupByDate "2006" "desc" }}
-          <div class="units-row">
-            <div class="unit-10">
-              <h3>{{ .Key }}</h3>
-            </div>
-            <div class="unit-90">
-              <ul class="compact fa-ul">
-	        {{ range .Pages.ByDate.Reverse }}
-                <li><i class="fa-li fa  {{ if eq .Type "retired" }}fa-file-o {{ else if eq .Params.kind "book" }}fa-book {{ else }}fa-file {{ end }} fa-fw" style="color:#03396c;font-size:80%;padding-top:6px;"></i> {{ .Params.citation | safeHTML }}
-                  <a href="{{ .Permalink }}" class="badge badge-small">Abstract</a>
-                  {{ if isset .Params "file" }}
-                  <a href="{{.Site.BaseURL}}files/papers/{{ .Params.file }}" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;pdf</a>
-                  {{ end }}
-                </li>
-	        {{ end }}
-              </ul>              
-            </div>	
-          </div>
-          {{ end }}
-          <h2>Essays and Reviews</h2>
-          {{ range (where .Data.Pages "Type" "other").GroupByDate "2006" "desc" }}
-          <div class="units-row">
-            <div class="unit-10">
-              <h3>{{ .Key }}</h3>
-            </div>
-            <div class="unit-90">
-              <ul class="compact fa-ul">
-	        {{ range .Pages.ByDate.Reverse }}
-                <li><i class="fa-li fa  {{ if eq .Type "unpublished" }}fa-file-o {{ else if eq .Params.kind "book" }}fa-book {{ else }}fa-file {{ end }} fa-fw" style="color:#03396c;font-size:80%;padding-top:6px;"></i> {{ .Params.citation | safeHTML }}
-                  <a href="{{ .Permalink }}" class="badge badge-small">Abstract</a>
-                  {{ if isset .Params "file" }}
-                  <a href="{{.Site.BaseURL}}files/papers/{{ .Params.file }}" class="badge badge-small"><i class="fa fa-file-pdf-o"></i>&nbsp;pdf</a>
-                  {{ end }}
-                </li>
-	        {{ end }}
-              </ul>              
-            </div>	
-          </div>
-          {{ end }} 
-        </div>
-    </div> 
 {{ end }}

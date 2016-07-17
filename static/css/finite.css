@@ -138,6 +138,10 @@ pre {
     white-space: nowrap;
 }
 
+.capitalize {
+    text-transform: capitalize;
+}
+
 .full-figure {
     margin: 0;
 }
@@ -146,6 +150,28 @@ pre {
 .whatisthis hr {
     border-style: solid;
     border-color: #101730;
+}
+
+/* Taxonomy terms page.  */
+ul.taxonomy-terms {
+    margin-left: 0;
+    list-style-type: none;
+}
+
+.taxonomy-terms li {
+    display: inline;
+}
+
+.taxonomy-terms li::after {
+    content: ",";
+}
+.taxonomy-terms li:last-child::after {
+    content: "";
+}
+
+.taxonomy-terms a
+{
+    border: none;
 }
 
 /* Support for other pages.  */
