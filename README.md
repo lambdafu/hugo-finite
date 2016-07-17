@@ -17,9 +17,11 @@ Contributions welcome!
 
 * Table style.
 * Blockquote style.
+* Blog archive by date
 
-# License
+# License of third-parties
 
+* hugo-academic: MIT License
 * Highlight.js: MIT License
 * MathJax: Apache License 2.0
 * Foundation 6.2.3 by Zurb: MIT License
