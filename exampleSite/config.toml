@@ -1,0 +1,84 @@
+baseurl = "http://github.com/lambdafu/hugo-finite"
+title = "Hugo Finite"
+author = "Marcus Brinkmann"
+copyright = "Copyright (c) 2016 Marcus Brinkmann"
+canonifyurls = true
+paginate = 3
+theme="finite"
+
+[params]
+
+# Date format (refer to Go's date format: http://flippinggodateformat.com)
+# Examples: "Mon, Jan 2, 2006" or "2006-01-02"
+#date_format = "2 January 2006"
+
+# Publications must have a type and a kind.
+# Type is one of: published, unpublished
+# Kind is one of: book
+
+bio_full = "Pierre de Fermat: Lawyer at the Parlement of Toulouse, mathematician in his spare time!"
+bio_twitter = "pierrede_fermat"
+
+# Title of posts section on main page.
+#posts_title = "Posts"
+
+# Number of posts to show on main page.
+#posts_count = 2
+
+# Title of publications section on main page.
+#pubs_title = "Publications"
+
+# Number of publications to show on main page.
+#pubs_count = 5
+
+[[params.education]]
+  course = "Bachelor in Civil Law"
+  institution = "University of Orléans"
+  year = 1626
+
+[[params.social]]
+  icon = "envelope"
+  icon_pack = "fa"
+  link = "mailto:fermat@example.com"
+  text = "fermat@example.com"
+    
+[[params.social]]
+  icon = "twitter"
+  icon_pack = "fa"
+  link = "https://twitter.com/pierrede_fermat"
+  text = "@pierrede_fermat"
+  site = "Twitter"
+
+[[params.social]]
+  icon = "github"
+  icon_pack = "fa"
+  link = "//https://gist.github.com/Ayrx/5884802"
+  text = "Fermat"
+  site = "GitHub"
+
+[[params.social]]
+  icon = "researchgate"
+  icon_pack = "ai"
+  link = "https://www.researchgate.net/profile/Pierre_Fermat3"
+  text = "ResearchGate"
+
+
+
+# Navigation Links
+# The weight parameter defines the order that the links will appear in.
+
+[[menu.main]]
+  name = "Publications"
+  url = "/publication/"
+  weight = 2
+
+[[menu.main]]
+  name = "Blog"
+  url = "/post/"
+  weight = 3
+
+[[menu.main]]
+  name = "Contact"
+  url = "/#contact"
+  weight = 4
+
