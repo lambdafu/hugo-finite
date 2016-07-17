@@ -3,10 +3,7 @@
   <div class="column small-12">
     {{ $paginator := .Paginate .Data.Pages }}
     {{ range $paginator.Pages }}
-    <div>
-      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-      <div class="article-style"><p>{{ .Summary }}</p></div>
-    </div>
+    {{ partial "post-summary" . }}
     {{ end }}
     {{ partial "pagination" . }}
   </div>
