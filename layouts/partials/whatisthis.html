@@ -36,7 +36,8 @@
       <h1>Search</h1>
       <a id="searchsite">
 	<form method="get" action="https://duckduckgo.com/">
-	  <input type="search" name="q" maxlength="255" placeholder="Search with DuckDuckGo">
+	  <label for="search-field" class="show-for-sr">Search with DuckDuckGo</label>
+	  <input type="search" name="q" maxlength="255" placeholder="Search with DuckDuckGo" id="search-field">
 	  <input type="hidden" name="sites" value="{{ .Site.BaseURL }}"/>
 	  <input type="hidden" name="k7" value="#faf8f8"/>
 	  <input type="hidden" name="kj" value="#b33"/>
