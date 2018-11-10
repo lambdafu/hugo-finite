@@ -23,7 +23,7 @@ Contributions welcome!
 
 * hugo-academic: MIT License
 * Highlight.js: MIT License
-* MathJax: Apache License 2.0
+* KaTex: MIT License
 * Foundation 6.2.3 by Zurb: MIT License
 * Font Awesome 4.6.3: SIL OFL 1.1 (font), MIT License (CSS)
 * Academicons 1.7.0: SIL OFL 1.1 (font), MIT License (CSS)
