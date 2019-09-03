@@ -8,7 +8,7 @@ description = "A simple academic theme."
 homepage = "https://github.com/lambdafu/hugo-finite"
 tags = ["academic", "basic"]
 features = ["posts", "publications", "social"]
-min_version = 0.15
+min_version = "0.57.0"
 
 [author]
   name = "Marcus Brinkmann"
