@@ -4,7 +4,7 @@
     {{ partial "post-aside" . }}
   </div>
   <div class="column small-12 medium-10 medium-offset-1 end large-offset-0 large-8 large-pull-3">
-    {{ $paginator := .Paginate .Data.Pages }}
+    {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
     {{ range $paginator.Pages }}
     {{ partial "post-summary" . }}
     {{ end }}

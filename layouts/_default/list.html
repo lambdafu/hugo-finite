@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="row">
   <div class="column small-12">
-    {{ $paginator := .Paginate .Data.Pages }}
+    {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
     {{ range $paginator.Pages }}
     {{ partial "post-summary" . }}
     {{ end }}
